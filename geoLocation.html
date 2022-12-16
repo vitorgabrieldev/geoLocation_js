@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <!-- Require Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Title Website -->
+        <title>GeoLocation code</title>
+    </head>
+    <body>
+        <script>
+            // location function
+            const geoLocation = navigator.geolocation.getCurrentPosition((position) => {
+
+                // receive position data
+                let lat = position.coords.latitude;
+                let long = position.coords.longitude;
+                
+                // print values
+                console.log(lat,long);
+            });
+        </script>
+    </body>
+</html>
