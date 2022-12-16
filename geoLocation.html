@@ -6,9 +6,38 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Title Website -->
         <title>GeoLocation code</title>
+        <!-- Style -->
+        <style type="text/css">
+            body, html {
+                /* Reset */
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+
+                /* Position */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+
+                /* Style */
+                background: rgb(33, 32, 32);
+            }
+
+            #geoLocation_print {
+                color: #fefefe;
+                font-family: monospace;
+                font-size: 2.5rem;
+            }
+        </style>
     </head>
     <body>
+        <!-- --- * --- Components --- * --- -->
+        <h1 id="geoLocation_print"></h1>
         <script>
+            // Element DOM
+            let titleDOM = document.querySelector('#geoLocation_print');
+
             // location function
             const geoLocation = navigator.geolocation.getCurrentPosition((position) => {
 
@@ -16,8 +45,11 @@
                 let lat = position.coords.latitude;
                 let long = position.coords.longitude;
                 
-                // print values
+                // print values Console
                 console.log(lat,long);
+
+                // InnerHtml values DOM
+                titleDOM.innerHTML = `Latitude = ${lat} <br> Longitude = ${long}`;
             });
         </script>
     </body>
